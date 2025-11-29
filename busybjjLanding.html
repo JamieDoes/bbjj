@@ -968,6 +968,302 @@
             height: 18px;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            padding: 20px;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--forest) 100%);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 16px 16px 0 0;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .modal-body {
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            margin-bottom: 8px;
+        }
+
+        .form-label .required {
+            color: var(--forest);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--navy);
+            box-shadow: 0 0 0 3px rgba(37, 71, 126, 0.1);
+        }
+
+        .waiver-section {
+            background: var(--sage-light);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .waiver-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .waiver-content {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 12px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--gray-600);
+        }
+
+        .waiver-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .waiver-content::-webkit-scrollbar-track {
+            background: var(--gray-200);
+            border-radius: 3px;
+        }
+
+        .waiver-content::-webkit-scrollbar-thumb {
+            background: var(--navy);
+            border-radius: 3px;
+        }
+
+        .waiver-content h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .waiver-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .waiver-content p {
+            margin-bottom: 12px;
+        }
+
+        .waiver-content ul {
+            margin-bottom: 12px;
+            padding-left: 20px;
+        }
+
+        .waiver-content li {
+            margin-bottom: 6px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .form-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--forest);
+        }
+
+        .checkbox-label {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        .checkbox-label .required {
+            color: var(--forest);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px 24px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: var(--forest);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-submit:disabled {
+            background: var(--gray-400);
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--forest);
+        }
+
+        .success-message h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+
+        .success-message p {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-content {
@@ -1034,10 +1330,151 @@
             .footer-social {
                 justify-content: center;
             }
+
+            .modal-content {
+                max-height: 95vh;
+            }
+
+            .modal {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Trial Modal -->
+    <div class="modal" id="trialModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <h2 class="modal-title">Claim Your Free Week</h2>
+                <p class="modal-subtitle">7 Days Unlimited Access • Zero Payment Required</p>
+            </div>
+            <div class="modal-body">
+                <form id="trialForm" onsubmit="submitTrialForm(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            class="form-input"
+                            required
+                            placeholder="Enter your full name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-input"
+                            required
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">
+                            Phone Number
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            class="form-input"
+                            placeholder="(720) 555-1234"
+                        >
+                    </div>
+
+                    <div class="waiver-section">
+                        <h3 class="waiver-title">Liability Waiver</h3>
+                        <div class="waiver-content">
+                            <h4>Assumption of Risk</h4>
+                            <p>I understand that Brazilian Jiu-Jitsu training involves physical contact and athletic activities that carry inherent risks, including but not limited to:</p>
+                            <ul>
+                                <li>Minor injuries such as bruises, scratches, and muscle soreness</li>
+                                <li>Moderate injuries such as sprains, strains, and joint stress</li>
+                                <li>Serious injuries including broken bones, dislocations, or head injuries</li>
+                                <li>In rare cases, permanent disability or death</li>
+                            </ul>
+                            <p>I acknowledge that these risks cannot be entirely eliminated regardless of the care and precautions taken by Busy BJJ & Fitness, its instructors, or staff.</p>
+
+                            <h4>Medical Clearance</h4>
+                            <p>I certify that I am in good physical condition and have no medical conditions that would prevent me from safely participating in Brazilian Jiu-Jitsu training. I agree to immediately inform the instructor if I develop any condition that might affect my ability to train safely.</p>
+
+                            <h4>Release of Liability</h4>
+                            <p>In consideration for being allowed to participate in classes and activities at Busy BJJ & Fitness, I hereby:</p>
+                            <ul>
+                                <li>Release and discharge Busy BJJ & Fitness, Professor Mario Correa, all instructors, staff, and the facility owner from any and all claims, demands, or causes of action arising from my participation</li>
+                                <li>Waive any right to sue or claim compensation for injuries sustained during training</li>
+                                <li>Agree to indemnify and hold harmless Busy BJJ & Fitness from any claims brought by family members or third parties as a result of my injuries</li>
+                            </ul>
+
+                            <h4>Rules and Conduct</h4>
+                            <p>I agree to:</p>
+                            <ul>
+                                <li>Follow all instructions given by instructors and staff</li>
+                                <li>Maintain proper hygiene including clean gi/uniform and trimmed nails</li>
+                                <li>Respect all students and training partners</li>
+                                <li>Tap early and often to prevent injury during submissions</li>
+                                <li>Not train while under the influence of drugs or alcohol</li>
+                                <li>Immediately report any unsafe conditions to staff</li>
+                            </ul>
+
+                            <h4>Photo/Video Release</h4>
+                            <p>I grant Busy BJJ & Fitness permission to use photographs or videos taken during training for promotional purposes including social media, website, and marketing materials.</p>
+
+                            <h4>Acknowledgment</h4>
+                            <p>I have read this waiver carefully and understand its contents. I am aware that by signing below, I am waiving certain legal rights including the right to sue. I sign this document voluntarily and of my own free will.</p>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input
+                            type="checkbox"
+                            id="agreeWaiver"
+                            name="agreeWaiver"
+                            class="form-checkbox"
+                            required
+                        >
+                        <label for="agreeWaiver" class="checkbox-label">
+                            I have read and agree to the terms of the liability waiver <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        Claim Your Free 7 Days
+                    </button>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Welcome to Busy BJJ!</h3>
+                    <p>Thank you for signing up. We've received your registration and will contact you shortly at the email you provided to schedule your first class.</p>
+                    <p><strong>What's Next?</strong><br>
+                    Check your email for confirmation and details about your free 7-day trial. We can't wait to see you on the mats!</p>
+                    <button class="btn-submit" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="container nav-inner">
@@ -1120,7 +1557,7 @@
                     </li>
                 </ul>
                 <a href="#contact" class="btn-primary">Claim Your Free Week</a>
-                <p class="cta-note">Classes Mon–Sat, 9AM–9PM</p>
+                <p class="cta-note">Classes Mon–Sat, 6:30AM–9PM</p>
             </div>
         </div>
     </section>
@@ -1418,15 +1855,21 @@
                 <div class="location-hours">
                     <h4>Class Hours</h4>
                     <div class="hours-list">
-                        <span>Monday – Friday: 9 AM – 9 PM</span>
-                        <span>Saturday: 9 AM – 2 PM</span>
+                        <span>Monday – Saturday: 6:30 AM – 9 PM</span>
                         <span>Sunday: Closed</span>
                     </div>
                 </div>
             </div>
             <div class="location-map">
-                <!-- Replace with Google Maps embed -->
-                Map Placeholder
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3073.892!2d-104.905654!3d39.571066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c87d9c8e7d7e1%3A0x8d8c8d8c8d8c8d8c!2s8200%20S%20Quebec%20St%20Unit%20A-10%2C%20Centennial%2C%20CO%2080112!5e0!3m2!1sen!2sus!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style="border:0; border-radius: 12px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
@@ -1477,18 +1920,88 @@
             }
         });
 
-        // Smooth scroll for anchor links
+        // Modal functionality
+        function openModal() {
+            const modal = document.getElementById('trialModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('trialModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+
+            // Reset form and hide success message
+            setTimeout(() => {
+                document.getElementById('trialForm').reset();
+                document.getElementById('trialForm').style.display = 'block';
+                document.getElementById('successMessage').classList.remove('active');
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('trialModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Handle form submission
+        function submitTrialForm(e) {
+            e.preventDefault();
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                agreedToWaiver: document.getElementById('agreeWaiver').checked,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log to console for now (will be replaced with actual backend)
+            console.log('Trial signup:', formData);
+
+            // Show success message
+            document.getElementById('trialForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+
+            // TODO: Replace with actual form submission to backend
+            // Example:
+            // fetch('/api/trial-signup', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // });
+        }
+
+        // Smooth scroll for anchor links and open modal for trial CTAs
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+
+                // Check if it's a trial/contact link
+                if (href === '#trial' || href === '#contact') {
+                    e.preventDefault();
+                    openModal();
+                } else {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 </body>
