@@ -1,8 +1,4 @@
 {
-  "name": "busybjj-website",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/busybjjLanding.html" }
-  ]
+  "trailingSlash": false
 }
