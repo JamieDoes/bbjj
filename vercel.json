@@ -1,4 +1,5 @@
 {
+  "name": "busybjj-website",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
