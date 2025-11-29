@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busy BJJ | Brazilian Jiu-Jitsu in Centennial, CO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gold: #d4a853;
+            --gold-dim: #b8944a;
+            --red: #c41e3a;
+            --gray-dark: #1a1a1a;
+            --gray-mid: #2a2a2a;
+            --gray-light: #888;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0) 100%);
+            transition: background 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10,10,10,0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--black);
+            padding: 12px 24px;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(212, 168, 83, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(196, 30, 58, 0.05) 0%, transparent 50%),
+                var(--black);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray-dark);
+            border: 1px solid var(--gray-mid);
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 0.95;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        h1 .highlight {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--gray-light);
+            max-width: 480px;
+            margin-bottom: 40px;
+        }
+
+        /* CTA Card */
+        .cta-card {
+            background: var(--gray-dark);
+            border: 1px solid var(--gray-mid);
+            padding: 48px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--red));
+        }
+
+        .offer-tag {
+            position: absolute;
+            top: -12px;
+            right: 32px;
+            background: var(--red);
+            color: var(--white);
+            padding: 6px 16px;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .cta-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .cta-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-mid);
+            font-size: 1rem;
+        }
+
+        .cta-features li:last-child {
+            border-bottom: none;
+        }
+
+        .cta-features svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            background: var(--gold);
+            color: var(--black);
+            padding: 20px;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--white);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            transform: translateX(0);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--gray-light);
+        }
+
+        /* Credentials Strip */
+        .credentials {
+            background: var(--gray-dark);
+            border-top: 1px solid var(--gray-mid);
+            border-bottom: 1px solid var(--gray-mid);
+            padding: 40px 0;
+        }
+
+        .credentials-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .credential {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .credential-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .credential-label {
+            font-size: 0.9rem;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: var(--gray-dark);
+            border: 1px solid var(--gray-mid);
+            padding: 40px 32px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-dim);
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .benefit-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--black);
+        }
+
+        .benefit-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: var(--gray-light);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .benefit-stat {
+            display: inline-block;
+            background: var(--black);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-top: 16px;
+        }
+
+        /* Instructor Section */
+        .instructor {
+            padding: 120px 0;
+            background: var(--gray-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at center, rgba(212, 168, 83, 0.05) 0%, transparent 70%);
+        }
+
+        .instructor-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .instructor-visual {
+            position: relative;
+        }
+
+        .instructor-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--gray-mid);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-image::before {
+            content: 'PROFESSOR MARIO "BUSY" CORREA';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 24px 24px;
+            background: linear-gradient(to top, var(--black), transparent);
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .lineage-badge {
+            position: absolute;
+            top: 24px;
+            right: -20px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 16px 24px;
+            font-family: var(--font-display);
+            letter-spacing: 1px;
+            transform: rotate(3deg);
+        }
+
+        .lineage-badge span {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .instructor-info h2 {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .instructor-info h2 .highlight {
+            color: var(--gold);
+        }
+
+        .instructor-bio {
+            font-size: 1.15rem;
+            color: var(--gray-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .lineage-chain {
+            background: var(--black);
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .lineage-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .lineage-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .lineage-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lineage-name {
+            font-size: 0.95rem;
+        }
+
+        .lineage-arrow {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--black);
+        }
+
+        .achievement svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .achievement span {
+            font-size: 0.95rem;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 120px 0;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .program-card {
+            background: var(--gray-dark);
+            border: 1px solid var(--gray-mid);
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .program-label {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .program-card h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .program-card p {
+            color: var(--gray-light);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .program-benefits {
+            list-style: none;
+        }
+
+        .program-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .program-benefits svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background: var(--gray-dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            background: var(--black);
+            padding: 32px;
+            border: 1px solid var(--gray-mid);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 16px;
+            letter-spacing: 4px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--gray-light);
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 50% 100%, rgba(212, 168, 83, 0.1) 0%, transparent 60%);
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            color: var(--gray-light);
+            margin-bottom: 40px;
+        }
+
+        .final-cta .btn-primary {
+            display: inline-block;
+            width: auto;
+            padding: 24px 60px;
+        }
+
+        /* Location */
+        .location {
+            padding: 80px 0;
+            background: var(--gray-dark);
+            border-top: 1px solid var(--gray-mid);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .location-address {
+            font-size: 1.1rem;
+            color: var(--gray-light);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .location-hours {
+            background: var(--black);
+            padding: 24px;
+        }
+
+        .location-hours h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hours-list {
+            display: grid;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--gray-light);
+        }
+
+        .location-map {
+            aspect-ratio: 16/10;
+            background: var(--gray-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            letter-spacing: 2px;
+            color: var(--gray-light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--gray-mid);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-contact {
+            color: var(--gray-light);
+            margin-bottom: 8px;
+        }
+
+        .footer-contact a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .instructor-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials-inner {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-card {
+                padding: 32px 24px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">BUSY <span>BJJ</span></a>
+            <a href="#trial" class="nav-cta">START FREE TRIAL</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">Centennial, Colorado</div>
+                <h1>
+                    TRANSFORM YOUR LIFE
+                    <span class="highlight">ON THE MAT</span>
+                </h1>
+                <p class="hero-sub">
+                    More than a martial art. Build unshakeable confidence, real-world self-defense skills, and join a community that becomes family. For adults and kids.
+                </p>
+            </div>
+            <div class="cta-card" id="trial">
+                <span class="offer-tag">LIMITED OFFER</span>
+                <h2 class="cta-title">7 DAYS FREE</h2>
+                <p class="cta-subtitle">Zero Payment • Unlimited Classes • No Commitment</p>
+                <ul class="cta-features">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Access to all adult &amp; kids classes
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Gi and No-Gi training included
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Beginner-friendly fundamentals program
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        No credit card required to start
+                    </li>
+                </ul>
+                <a href="#contact" class="btn-primary"><span>CLAIM YOUR FREE WEEK</span></a>
+                <p class="cta-note">Classes run Mon–Sat, 9AM–9PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Strip -->
+    <section class="credentials">
+        <div class="container credentials-inner">
+            <div class="credential">
+                <div class="credential-value">33+</div>
+                <div class="credential-label">Years of BJJ Experience</div>
+            </div>
+            <div class="credential">
+                <div class="credential-value">15+</div>
+                <div class="credential-label">Years Serving Denver</div>
+            </div>
+            <div class="credential">
+                <div class="credential-value">5.0</div>
+                <div class="credential-label">Google Rating</div>
+            </div>
+            <div class="credential">
+                <div class="credential-value">GRACIE</div>
+                <div class="credential-label">Direct Lineage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">WHY BRAZILIAN JIU-JITSU?</p>
+                <h2>IT'S NOT ABOUT FIGHTING.<br>IT'S ABOUT BECOMING UNSTOPPABLE.</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <h3>STRESS LEAVES ON THE MAT</h3>
+                    <p>Training releases the same feel-good chemicals as meditation—but with a full-body workout. Research shows martial arts reduce anxiety and depression symptoms significantly.</p>
+                    <span class="benefit-stat">Peer-reviewed mental health benefits</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>REAL SELF-DEFENSE</h3>
+                    <p>Most confrontations end up on the ground. BJJ teaches you exactly what to do when that happens—using leverage, not size. Designed for smaller people to control larger attackers.</p>
+                    <span class="benefit-stat">Used by US Military &amp; Law Enforcement</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>FIND YOUR TRIBE</h3>
+                    <p>100% of BJJ practitioners in studies report a strong sense of community. The physical closeness and mutual trust create bonds that become genuine friendships.</p>
+                    <span class="benefit-stat">100% report community belonging</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>FULL-BODY FITNESS</h3>
+                    <p>One activity builds strength, flexibility, and elite cardiovascular endurance simultaneously. BJJ athletes show fitness levels comparable to elite endurance athletes.</p>
+                    <span class="benefit-stat">No boring gym routines</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>UNSHAKEABLE CONFIDENCE</h3>
+                    <p>Knowing you can handle yourself changes how you carry yourself through life. Multiple studies document higher self-esteem, greater autonomy, and emotional stability in practitioners.</p>
+                    <span class="benefit-stat">Research-backed confidence gains</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>PROBLEM-SOLVING MIND</h3>
+                    <p>BJJ is physical chess. Every roll sharpens your decision-making, focus, and ability to stay calm under pressure. Skills that transfer directly to work and life.</p>
+                    <span class="benefit-stat">Life skills beyond the gym</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor">
+        <div class="container instructor-content">
+            <div class="instructor-visual">
+                <div class="instructor-image">
+                    <!-- Placeholder for actual image -->
+                </div>
+                <div class="lineage-badge">
+                    4TH DEGREE BLACK BELT
+                    <span>Since 2004</span>
+                </div>
+            </div>
+            <div class="instructor-info">
+                <p class="section-label">YOUR INSTRUCTOR</p>
+                <h2>LEARN FROM <span class="highlight">AUTHENTIC GRACIE LINEAGE</span></h2>
+                <p class="instructor-bio">
+                    Professor Mario "Busy" Correa received his black belt directly from Master Carlos Gracie Jr.—founder of Gracie Barra and the IBJJF. Born and trained in Rio de Janeiro, Brazil, the birthplace of BJJ, he brings 33+ years of experience and a Pan-American Championship title to every class. The same professor cornering UFC fighters teaches our beginners.
+                </p>
+                <div class="lineage-chain">
+                    <p class="lineage-title">DIRECT LINEAGE TO THE SOURCE</p>
+                    <div class="lineage-list">
+                        <div class="lineage-item">
+                            <span class="lineage-name">Mitsuyo Maeda</span>
+                            <span class="lineage-arrow">→</span>
+                        </div>
+                        <div class="lineage-item">
+                            <span class="lineage-name">Carlos Gracie Sr.</span>
+                            <span class="lineage-arrow">→</span>
+                        </div>
+                        <div class="lineage-item">
+                            <span class="lineage-name">Carlos Gracie Jr.</span>
+                            <span class="lineage-arrow">→</span>
+                        </div>
+                        <div class="lineage-item">
+                            <span class="lineage-name"><strong>Professor Busy</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievements">
+                    <div class="achievement">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>2008 Pan-American Champion</span>
+                    </div>
+                    <div class="achievement">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>1993 Brazilian National Champion</span>
+                    </div>
+                    <div class="achievement">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>UFC Fighter Cornerman</span>
+                    </div>
+                    <div class="achievement">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Instructional DVD Author</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">PROGRAMS</p>
+                <h2>TRAINING FOR EVERY AGE &amp; LEVEL</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <p class="program-label">FOR ADULTS</p>
+                    <h3>ADULT JIU-JITSU</h3>
+                    <p>Whether you're a complete beginner or experienced grappler, our structured curriculum meets you where you are and takes you to the next level.</p>
+                    <ul class="program-benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            12-week rotating fundamentals curriculum
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Organized sparring before free rolling
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Gi and No-Gi classes available
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Takedowns class with Judo black belt
+                        </li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <p class="program-label">FOR KIDS</p>
+                    <h3>BUSY BEES PROGRAM</h3>
+                    <p>Give your child confidence, discipline, and skills that last a lifetime. Research proves martial arts improve grades, focus, and emotional regulation.</p>
+                    <ul class="program-benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Age-appropriate BJJ fundamentals
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Anti-bullying confidence building
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Improved self-control in 11 weeks (research-backed)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Character development through discipline
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">TESTIMONIALS</p>
+                <h2>WHAT OUR STUDENTS SAY</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"This school lives up to its name as I am VERY busy and don't get to as many classes as I would like. But this school offers classes early in the morning before work, around lunch, after work and even after dinner time."</p>
+                    <p class="testimonial-author">— AUSTIN F.</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Everyone there has treated me like family since day one. I had no athletic, sports or martial arts experience when I started. The instructors have been guiding me through their excellent fundamentals program."</p>
+                    <p class="testimonial-author">— NEW STUDENT</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"It still amazes me that I can watch UFC fights and see Professor Busy cornering for professional MMA fighters, knowing that he spent several hours the same week giving patient and thoughtful instruction to me."</p>
+                    <p class="testimonial-author">— STUDENT REVIEW</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container final-cta-content">
+            <p class="section-label">READY TO START?</p>
+            <h2>YOUR FIRST WEEK IS ON US</h2>
+            <p>No payment. No commitment. Just show up, train, and see how BJJ transforms your life.</p>
+            <a href="#contact" class="btn-primary"><span>CLAIM YOUR 7 FREE DAYS</span></a>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section class="location" id="contact">
+        <div class="container location-content">
+            <div class="location-info">
+                <h3>VISIT BUSY BJJ</h3>
+                <p class="location-address">
+                    8200 S Quebec St, Unit A-10<br>
+                    Centennial, CO 80112<br><br>
+                    <strong>Phone:</strong> <a href="tel:7202392879">(720) 239-2879</a>
+                </p>
+                <div class="location-hours">
+                    <h4>CLASS HOURS</h4>
+                    <div class="hours-list">
+                        <span>Monday – Friday: 9 AM – 9 PM</span>
+                        <span>Saturday: 9 AM – 2 PM</span>
+                        <span>Sunday: Closed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="location-map">
+                <!-- Replace with actual Google Maps embed -->
+                MAP PLACEHOLDER
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-logo">BUSY <span>BJJ</span></p>
+            <p class="footer-contact">
+                <a href="tel:7202392879">(720) 239-2879</a> • 
+                <a href="mailto:info@busybjj.com">info@busybjj.com</a>
+            </p>
+            <p class="footer-contact">8200 S Quebec St A-10, Centennial, CO 80112</p>
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
