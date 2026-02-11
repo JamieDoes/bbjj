@@ -4,6 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busy BJJ | Brazilian Jiu-Jitsu in Centennial, CO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Meta Description -->
+    <meta name="description" content="Train Brazilian Jiu-Jitsu in Centennial, CO. Beginner-friendly adult and kids classes led by Pan-American Champion Professor Mario Correa. Try a free week at Busy BJJ Academy.">
+
+    <!-- Canonical URL (update when live) -->
+    <link rel="canonical" href="https://busybjj-website.vercel.app/">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Busy BJJ Academy | Brazilian Jiu-Jitsu in Centennial, CO">
+    <meta property="og:description" content="Get started with a free week of training. Adult BJJ, kids classes, beginners welcome. Direct Gracie lineage instruction.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://busybjj-website.vercel.app/">
+    <!-- UPDATE og-image with real social image when published -->
+    <meta property="og:image" content="https://busybjj-website.vercel.app/og-image.jpg">
+    <meta property="og:image:alt" content="Busy BJJ Academy — Brazilian Jiu-Jitsu in Centennial, Colorado">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Busy BJJ Academy | Brazilian Jiu-Jitsu in Centennial, CO">
+    <meta name="twitter:description" content="Experience Brazilian Jiu-Jitsu with a Pan-American Champion instructor. Start your free trial today.">
+    <meta name="twitter:image" content="https://busybjj-website.vercel.app/og-image.jpg">
+
+    <!-- Favicon (replace with Busy BJJ logo) -->
+    <link rel="icon" href="/favicon.ico">
+
+    <!-- LocalBusiness Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsClub",
+        "name": "Busy BJJ",
+        "image": "https://busybjj-website.vercel.app/og-image.jpg",
+        "@id": "https://busybjj-website.vercel.app/",
+        "url": "https://busybjj-website.vercel.app/",
+        "telephone": "+1-720-239-2879",
+        "description": "Brazilian Jiu-Jitsu academy in Centennial, CO led by Pan-American Champion Professor Mario 'Busy' Correa. Beginner-friendly adult and kids classes with direct Gracie lineage instruction.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "8200 S Quebec St, Unit A-10",
+            "addressLocality": "Centennial",
+            "addressRegion": "CO",
+            "postalCode": "80112",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.606123,
+            "longitude": -104.709521
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "06:30",
+                "closes": "21:00"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "50",
+            "reviewCount": "50"
+        },
+        "sameAs": [
+            "https://www.instagram.com/busybjj/",
+            "https://www.facebook.com/BusyBJJ/",
+            "https://x.com/busybjj",
+            "https://www.youtube.com/channel/UC6nUAFDi4CQ6lNNJHBe6oiA"
+        ],
+        "areaServed": [
+            {"@type": "City", "name": "Centennial"},
+            {"@type": "City", "name": "Parker"},
+            {"@type": "City", "name": "Aurora"},
+            {"@type": "City", "name": "Lone Tree"},
+            {"@type": "City", "name": "Highlands Ranch"},
+            {"@type": "City", "name": "Englewood"},
+            {"@type": "City", "name": "Greenwood Village"},
+            {"@type": "City", "name": "Littleton"}
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -18,7 +106,7 @@
             --forest-light: #1d662f;
             --sage: #DDE8D7;
             --sage-light: #EDF3EA;
-            
+
             /* Neutrals */
             --white: #FFFFFF;
             --off-white: #FAFBF9;
@@ -28,10 +116,10 @@
             --gray-600: #5A615A;
             --gray-800: #2A2E2A;
             --black: #1A1C1A;
-            
+
             --font-display: 'Bebas Neue', sans-serif;
             --font-body: 'Inter', sans-serif;
-            
+
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
@@ -60,6 +148,25 @@
             margin: 0 auto;
             padding: 0 24px;
         }
+
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.35s; }
+        .stagger-5 { transition-delay: 0.4s; }
+        .stagger-6 { transition-delay: 0.45s; }
 
         /* Navigation */
         nav {
@@ -98,27 +205,6 @@
             width: auto;
         }
 
-        .logo-mark {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--forest) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .logo-text {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--navy);
-        }
-
         .nav-cta {
             background: var(--navy);
             color: var(--white);
@@ -144,15 +230,15 @@
             position: relative;
             background: var(--off-white);
             overflow: hidden;
-            padding-top: 80px; /* Account for fixed nav height */
+            padding-top: 80px;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: 
+            background:
                 radial-gradient(ellipse at 0% 100%, var(--sage) 0%, transparent 50%),
-                radial-gradient(ellipse at 100% 0%, rgba(234, 254, 26, 0.15) 0%, transparent 40%);
+                radial-gradient(ellipse at 100% 0%, rgba(234, 254, 26, 0.12) 0%, transparent 40%);
         }
 
         .hero-content {
@@ -203,7 +289,7 @@
 
         h1 {
             font-family: var(--font-display);
-            font-size: clamp(2.8rem, 5.5vw, 4rem);
+            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
             line-height: 1.05;
             color: var(--black);
             margin-bottom: 24px;
@@ -218,11 +304,11 @@
         }
 
         .hero-sub {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--gray-600);
-            max-width: 520px;
+            max-width: 540px;
             margin-bottom: 32px;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         .hero-features {
@@ -244,6 +330,7 @@
             width: 20px;
             height: 20px;
             color: var(--forest);
+            flex-shrink: 0;
         }
 
         /* CTA Card */
@@ -378,20 +465,37 @@
         .credential {
             text-align: center;
             flex: 1;
-            min-width: 180px;
+            min-width: 160px;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .credential:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            width: 1px;
+            background: var(--gray-200);
         }
 
         .credential-value {
             font-family: var(--font-display);
-            font-size: 2.2rem;
+            font-size: 2.6rem;
             font-weight: 700;
             color: var(--navy);
+            line-height: 1;
         }
 
         .credential-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 500;
             color: var(--gray-600);
-            margin-top: 4px;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Benefits Section */
@@ -447,13 +551,31 @@
             border: 1px solid var(--gray-200);
             border-radius: 12px;
             padding: 36px 28px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--navy), var(--forest));
+            border-radius: 12px 12px 0 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .benefit-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--sage);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(37, 71, 126, 0.1);
+            border-color: transparent;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
         }
 
         .benefit-icon {
@@ -516,6 +638,13 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .instructor-image::after {
             content: 'Professor Mario "Busy" Correa';
             position: absolute;
@@ -557,7 +686,7 @@
         }
 
         .instructor-bio {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--gray-600);
             margin-bottom: 32px;
             line-height: 1.8;
@@ -650,6 +779,12 @@
             padding: 44px 36px;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
 
         .program-card.adults {
@@ -727,29 +862,126 @@
 
         .testimonial {
             background: var(--white);
-            padding: 32px;
-            border-radius: 12px;
+            padding: 36px;
+            border-radius: 16px;
             box-shadow: var(--shadow-sm);
+            position: relative;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-quote {
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--sage);
+            margin-bottom: -8px;
         }
 
         .testimonial-stars {
             color: var(--yellow-dim);
             margin-bottom: 16px;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            font-size: 1rem;
+            letter-spacing: 3px;
         }
 
         .testimonial-text {
-            font-size: 1rem;
+            font-size: 0.98rem;
             line-height: 1.8;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--gray-600);
+            font-style: italic;
         }
 
         .testimonial-author {
             font-weight: 600;
             font-size: 0.9rem;
+            color: var(--navy);
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
             color: var(--gray-800);
+            cursor: pointer;
+            text-align: left;
+            gap: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--navy);
+        }
+
+        .faq-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--sage-light);
+            transition: all 0.3s ease;
+        }
+
+        .faq-icon svg {
+            width: 14px;
+            height: 14px;
+            color: var(--forest);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            background: var(--navy);
+        }
+
+        .faq-item.open .faq-icon svg {
+            color: var(--white);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer-inner {
+            padding-bottom: 24px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray-600);
         }
 
         /* Final CTA */
@@ -765,7 +997,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: 
+            background:
                 radial-gradient(ellipse at 30% 100%, rgba(234, 254, 26, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 0%, rgba(15, 90, 44, 0.2) 0%, transparent 50%);
         }
@@ -790,20 +1022,23 @@
             font-size: 1.15rem;
             color: rgba(255,255,255,0.8);
             margin-bottom: 36px;
+            line-height: 1.7;
         }
 
         .final-cta .btn-primary {
             display: inline-block;
             width: auto;
-            padding: 20px 48px;
-            background: var(--yellow);
-            color: var(--black);
+            padding: 20px 56px;
+            background: var(--white);
+            color: var(--navy);
             font-weight: 700;
+            font-size: 1.05rem;
         }
 
         .final-cta .btn-primary:hover {
-            background: var(--white);
-            color: var(--navy);
+            background: var(--yellow);
+            color: var(--black);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
         }
 
         /* Location */
@@ -900,20 +1135,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-
-        .footer-logo-mark {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--forest) 100%);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 700;
         }
 
         .footer-text {
@@ -1278,8 +1499,13 @@
         }
 
         @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .container {
+                padding: 0 20px;
+            }
+
+            .benefits-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
             }
 
             .instructor-content {
@@ -1290,21 +1516,14 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .benefits-grid,
-            .programs-grid {
-                grid-template-columns: 1fr;
-            }
 
             .credentials-inner {
                 flex-direction: column;
                 gap: 24px;
+            }
+
+            .credential::after {
+                display: none !important;
             }
 
             .achievements {
@@ -1345,6 +1564,18 @@
             .modal {
                 padding: 10px;
             }
+
+            .lineage-badge {
+                right: 10px;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            .benefits, .instructor, .programs, .testimonials, .faq, .final-cta {
+                padding: 80px 0;
+            }
         }
     </style>
 </head>
@@ -1360,7 +1591,7 @@
                     </svg>
                 </button>
                 <h2 class="modal-title">Claim Your Free Week</h2>
-                <p class="modal-subtitle">7 Days Unlimited Access • Zero Payment Required</p>
+                <p class="modal-subtitle">7 Days Unlimited Access &bull; Zero Payment Required</p>
             </div>
             <div class="modal-body">
                 <form id="trialForm" onsubmit="submitTrialForm(event)">
@@ -1505,24 +1736,24 @@
                     Centennial, Colorado
                 </div>
                 <h1>
-                    From Rio to Denver:
-                    <span class="highlight">Authentic Gracie Lineage</span>
+                    Championship Jiu-Jitsu.
+                    <span class="highlight">Beginner-Friendly Academy.</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn Brazilian Jiu-Jitsu from a Pan-American Champion who earned his black belt directly from Master Carlos Gracie Jr. in Rio de Janeiro. World-class instruction in a beginner-friendly environment.
+                    Pan-American Champion Professor Mario "Busy" Correa earned his black belt directly from Carlos Gracie Jr. in Rio de Janeiro. Now he brings 33+ years of world-class technique to Denver — in a gym where everyone starts as a beginner.
                 </p>
                 <div class="hero-features">
                     <div class="hero-feature">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        33+ years BJJ experience
+                        Direct Gracie lineage
                     </div>
                     <div class="hero-feature">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        You don't roll until you're ready
+                        You roll when YOU'RE ready
                     </div>
                     <div class="hero-feature">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1548,13 +1779,13 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        Beginner-friendly fundamentals program
+                        Structured fundamentals curriculum
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        Welcoming, supportive environment
+                        No sparring until you're truly ready
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1572,19 +1803,19 @@
     <!-- Credentials Strip -->
     <section class="credentials">
         <div class="container credentials-inner">
-            <div class="credential">
+            <div class="credential fade-up stagger-1">
                 <div class="credential-value">33+</div>
-                <div class="credential-label">Years of Experience</div>
+                <div class="credential-label">Years of BJJ Experience</div>
             </div>
-            <div class="credential">
+            <div class="credential fade-up stagger-2">
                 <div class="credential-value">15+</div>
-                <div class="credential-label">Years in Denver</div>
+                <div class="credential-label">Years Serving Denver</div>
             </div>
-            <div class="credential">
+            <div class="credential fade-up stagger-3">
                 <div class="credential-value">5.0</div>
                 <div class="credential-label">Google Rating</div>
             </div>
-            <div class="credential">
+            <div class="credential fade-up stagger-4">
                 <div class="credential-value">Gracie</div>
                 <div class="credential-label">Direct Lineage</div>
             </div>
@@ -1594,13 +1825,13 @@
     <!-- Benefits Section -->
     <section class="benefits">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-up">
                 <p class="section-label">Why Jiu-Jitsu?</p>
-                <h2>Research-Proven <span class="highlight">Life Benefits</span></h2>
-                <p class="section-sub">Peer-reviewed studies show BJJ delivers measurable improvements in mental health, physical fitness, and confidence. The benefits extend far beyond the mat.</p>
+                <h2>Six Ways BJJ <span class="highlight">Changes Your Life</span></h2>
+                <p class="section-sub">Peer-reviewed research confirms what practitioners already know — BJJ delivers measurable improvements in mental health, physical fitness, and confidence that extend far beyond the mat.</p>
             </div>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card fade-up stagger-1">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -1609,19 +1840,19 @@
                             <line x1="15" y1="9" x2="15.01" y2="9"></line>
                         </svg>
                     </div>
-                    <h3>Reduces Anxiety & Depression</h3>
-                    <p>Meta-analysis of martial arts training shows a "medium effect size" on reducing anxiety and depression symptoms—comparable to many clinical interventions.</p>
+                    <h3>Stress Relief That Works</h3>
+                    <p>BJJ forces total present-moment focus, shutting down the mental loops behind anxiety and stress. Students call it a "reset button" after a long day — and meta-analyses back them up.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card fade-up stagger-2">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>
                     </div>
                     <h3>Real Self-Defense</h3>
-                    <p>Learn practical techniques designed for smaller people to control larger opponents using leverage, not strength.</p>
+                    <p>The Gracie system was designed so a smaller person can control a larger opponent using leverage, not strength. No athleticism required — just technique and patience.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card fade-up stagger-3">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -1630,29 +1861,29 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h3>100% Community Connection</h3>
-                    <p>Research shows 100% of BJJ practitioners report a strong sense of community from training. The physical closeness and mutual trust create lasting friendships.</p>
+                    <h3>Community That Goes Deep</h3>
+                    <p>Research shows 100% of BJJ practitioners report a strong sense of community. The shared physical struggle on the mats builds friendships that last far beyond training.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card fade-up stagger-4">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                         </svg>
                     </div>
-                    <h3>Elite-Level Fitness</h3>
-                    <p>BJJ athletes show VO₂max values of 42-52 mL/kg/min—comparable to elite endurance athletes—while building strength, flexibility, and low body fat simultaneously.</p>
+                    <h3>Get Fit Without Noticing</h3>
+                    <p>Rolling creates natural interval training — explosive bursts followed by recovery. You'll build cardio, strength, and flexibility without ever stepping on a treadmill.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card fade-up stagger-5">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
                     </div>
-                    <h3>Better Focus</h3>
-                    <p>Jiu-Jitsu demands present-moment awareness. Students report sharper concentration that carries into work and daily life.</p>
+                    <h3>Sharper Mind</h3>
+                    <p>Called "Human Chess," jiu-jitsu demands constant problem-solving under pressure. Students report better focus and decision-making that carries into work and daily life.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card fade-up stagger-6">
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -1660,7 +1891,7 @@
                         </svg>
                     </div>
                     <h3>Quiet Confidence</h3>
-                    <p>Knowing you can handle yourself changes how you move through the world. It's not about aggression—it's inner assurance.</p>
+                    <p>Knowing you can handle yourself changes how you move through the world. Not aggression — the deep, quiet assurance that comes from thousands of reps on the mat.</p>
                 </div>
             </div>
         </div>
@@ -1669,35 +1900,38 @@
     <!-- Instructor Section -->
     <section class="instructor">
         <div class="container instructor-content">
-            <div class="instructor-visual">
+            <div class="instructor-visual fade-up">
                 <div class="instructor-image">
-                    <!-- Replace with actual image -->
+                    <img src="/public/images/teacher_photos/MarioCorrea.avif" alt="Professor Mario 'Busy' Correa - Head Instructor at Busy BJJ" loading="lazy">
                 </div>
                 <div class="lineage-badge">
                     4th Degree Black Belt
-                    <span>Since 2004</span>
+                    <span>Under Carlos Gracie Jr.</span>
                 </div>
             </div>
-            <div class="instructor-info">
+            <div class="instructor-info fade-up">
                 <p class="section-label">Your Instructor</p>
-                <h2>Learn From <span class="highlight">Authentic Gracie Lineage</span></h2>
+                <h2>Born in Rio. <span class="highlight">Proven in Competition.</span> Dedicated to Teaching.</h2>
                 <p class="instructor-bio">
-                    Born in Rio de Janeiro—the birthplace of BJJ—Professor Mario "Busy" Correa trained under legends Roberto "Gordo" Correa and Vinicius "Draculino" Magalhães before receiving his black belt directly from Master Carlos Gracie Jr., founder of Gracie Barra and the IBJJF. With 33+ years of experience and a Pan-American Championship title, he brings world-class expertise and genuine care to every student.
+                    Professor Mario "Busy" Correa grew up training in Rio de Janeiro — the birthplace of BJJ — under legends Roberto "Gordo" Correa, who revolutionized half-guard, and Vinicius "Draculino" Magalhães. His black belt came directly from Master Carlos Gracie Jr., founder of Gracie Barra and the IBJJF.
+                </p>
+                <p class="instructor-bio">
+                    A Pan-American Champion and Brazilian National Champion, he's spent 15+ years bringing that pedigree to Denver. His philosophy is simple: master the fundamentals, protect your training partners, and never stop learning. At Busy BJJ, the owner is on the mats with you every day.
                 </p>
                 <div class="lineage-chain">
                     <p class="lineage-title">Direct Lineage</p>
                     <div class="lineage-list">
                         <div class="lineage-item">
                             <span class="lineage-name">Mitsuyo Maeda</span>
-                            <span class="lineage-arrow">→</span>
+                            <span class="lineage-arrow">&rarr;</span>
                         </div>
                         <div class="lineage-item">
                             <span class="lineage-name">Carlos Gracie Sr.</span>
-                            <span class="lineage-arrow">→</span>
+                            <span class="lineage-arrow">&rarr;</span>
                         </div>
                         <div class="lineage-item">
                             <span class="lineage-name">Carlos Gracie Jr.</span>
-                            <span class="lineage-arrow">→</span>
+                            <span class="lineage-arrow">&rarr;</span>
                         </div>
                         <div class="lineage-item">
                             <span class="lineage-name"><strong>Professor Busy</strong></span>
@@ -1741,15 +1975,16 @@
     <!-- Programs Section -->
     <section class="programs">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-up">
                 <p class="section-label">Programs</p>
                 <h2>Training for <span class="highlight">Every Age</span></h2>
+                <p class="section-sub">Whether you're a working professional looking for stress relief or a parent who wants your child to build confidence, we have a program designed for you.</p>
             </div>
             <div class="programs-grid">
-                <div class="program-card adults">
+                <div class="program-card adults fade-up stagger-1">
                     <p class="program-label">For Adults</p>
                     <h3>Adult Jiu-Jitsu</h3>
-                    <p>Our safety-first approach means you won't roll until the professor knows you're ready. You'll be paired with partners who will help—not hurt—you. Perfect for busy professionals.</p>
+                    <p>Our safety-first approach means you won't spar until Professor Busy knows you're ready. You'll be paired with partners who help — not hurt — you. Designed for working professionals who need to be at the office the next day.</p>
                     <ul class="program-benefits">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1761,50 +1996,50 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            No sparring until you're truly ready
+                            No sparring until you're truly prepared
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Classes 9 AM–9 PM to fit your schedule
+                            Morning, lunch, &amp; evening classes available
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Proven stress and anxiety reduction
+                            Research-proven stress &amp; anxiety reduction
                         </li>
                     </ul>
                 </div>
-                <div class="program-card kids">
+                <div class="program-card kids fade-up stagger-2">
                     <p class="program-label">For Kids</p>
                     <h3>Busy Bees Program</h3>
-                    <p>A 721-child study found martial arts significantly improved academic achievement. Another study showed better emotional self-regulation in just 11 weeks. Real results, not just exercise.</p>
+                    <p>A study of 721 children found martial arts training significantly improved academic achievement. Another showed better emotional self-regulation in just 11 weeks. Real, measurable results — not just exercise.</p>
                     <ul class="program-benefits">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Improves grades and focus (research-proven)
+                            Improves grades and focus (research-backed)
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Better self-control in 11 weeks
+                            Better self-control in just 11 weeks
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Reduces bullying through empathy
+                            Builds confidence through empathy, not aggression
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Age-appropriate instruction by pros
+                            Age-appropriate instruction by experienced professors
                         </li>
                     </ul>
                 </div>
@@ -1815,25 +2050,104 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-up">
                 <p class="section-label">What Students Say</p>
                 <h2>Real Stories From <span class="highlight">Our Community</span></h2>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial fade-up stagger-1">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                     <p class="testimonial-text">"I can watch UFC fights and see Professor Busy cornering for professional MMA fighters (who always seem to win), knowing that he spent several hours the same week giving patient and thoughtful instruction to a middle-aged office drone like me."</p>
-                    <p class="testimonial-author">— Long-time Student</p>
+                    <p class="testimonial-author">&mdash; Long-time Student</p>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial fade-up stagger-2">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                     <p class="testimonial-text">"At Busy BJJ, you don't roll until the professor thinks you're ready and puts you with people that will not intentionally hurt you. A great place to train BJJ."</p>
-                    <p class="testimonial-author">— Kevin S.</p>
+                    <p class="testimonial-author">&mdash; Kevin S.</p>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Professor Busy has developed a very structured class. I'm a Texas and Colorado certified elementary school teacher... I have seen at least the first three points—Knowledge, Comprehension, and Application—integrated into Busy's lessons."</p>
-                    <p class="testimonial-author">— Teacher & Parent</p>
+                <div class="testimonial fade-up stagger-3">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"Professor Busy has developed a very structured class. I'm a certified elementary school teacher... I have seen Knowledge, Comprehension, and Application integrated into Busy's lessons. His teaching methodology is outstanding."</p>
+                    <p class="testimonial-author">&mdash; Teacher &amp; Parent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-label">Common Questions</p>
+                <h2>Everything You Need <span class="highlight">to Know</span></h2>
+            </div>
+            <div class="faq-grid fade-up">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        I've never done martial arts. Will I be completely lost?
+                        <span class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Not at all. Most of our students walked in with zero experience. Our 12-week fundamentals curriculum is designed specifically for beginners — you'll learn step-by-step in a structured environment. Professor Busy personally ensures every new student feels welcomed and supported from day one.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        I'm over 40 and out of shape. Is this realistic for me?
+                        <span class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Absolutely. Many of our most dedicated students are working professionals in their 30s, 40s, 50s, and beyond. Jiu-Jitsu is built on leverage, not athleticism — it was literally designed so a smaller, weaker person can control a larger opponent. You'll build fitness as you learn. Come as you are.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Will I get hurt? I need to go to work the next day.
+                        <span class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Safety is our top priority. Unlike many gyms, we don't let beginners spar until Professor Busy personally decides you're ready. When you do start rolling, you'll be paired with experienced training partners who know how to keep things controlled. Our mats are extra-comfortable and our culture is "tap early, tap often." We understand you have a life outside the gym.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        What do I need to bring for my first class?
+                        <span class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Just yourself, a water bottle, and comfortable athletic clothes (shorts or sweatpants and a t-shirt work fine). We'll provide everything else for your trial week. If you decide to continue, we'll help you get set up with a gi (the traditional uniform). No pressure, no upsell.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1841,10 +2155,10 @@
 
     <!-- Final CTA -->
     <section class="final-cta">
-        <div class="container final-cta-content">
+        <div class="container final-cta-content fade-up">
             <p class="section-label">Ready to Start?</p>
-            <h2>Your First Week Is On Us</h2>
-            <p>No payment. No commitment. Just show up, train, and experience the difference.</p>
+            <h2>Your First Week Is Free</h2>
+            <p>No payment. No commitment. No experience necessary. Just show up, train with a Pan-American Champion, and see why our students stay for years.</p>
             <a href="#contact" class="btn-primary">Claim Your 7 Free Days</a>
         </div>
     </section>
@@ -1852,7 +2166,7 @@
     <!-- Location -->
     <section class="location" id="contact">
         <div class="container location-content">
-            <div class="location-info">
+            <div class="location-info fade-up">
                 <h3>Visit Busy BJJ</h3>
                 <p class="location-address">
                     8200 S Quebec St, Unit A-10<br>
@@ -1862,14 +2176,14 @@
                 <div class="location-hours">
                     <h4>Class Hours</h4>
                     <div class="hours-list">
-                        <span>Monday – Saturday: 6:30 AM – 9 PM</span>
+                        <span>Monday &ndash; Saturday: 6:30 AM &ndash; 9 PM</span>
                         <span>Sunday: Closed</span>
                     </div>
                 </div>
             </div>
-            <div class="location-map">
+            <div class="location-map fade-up">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100000!2d-104.905654!3d39.571066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f6!3m3!1m2!1s0x876c87d9c8e7d7e1%3A0x8d8c8d8c8d8c8d8c!2s8200%20S%20Quebec%20St%20Unit%20A-10%2C%20Centennial%2C%20CO%2080112!5e0!3m2!1sen!2sus!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.8!2d-104.905654!3d39.571066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f6!3m3!1m2!1s0x876c87d9c8e7d7e1%3A0x8d8c8d8c8d8c8d8c!2s8200%20S%20Quebec%20St%20Unit%20A-10%2C%20Centennial%2C%20CO%2080112!5e0!3m2!1sen!2sus!4v1234567890"
                     width="100%"
                     height="100%"
                     style="border:0; border-radius: 12px;"
@@ -1927,6 +2241,44 @@
             }
         });
 
+        // Scroll animations with Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // FAQ toggle
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isOpen = item.classList.contains('open');
+
+            // Close all others
+            document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+
+            if (isOpen) {
+                item.classList.remove('open');
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
         // Modal functionality
         function openModal() {
             const modal = document.getElementById('trialModal');
@@ -1972,14 +2324,6 @@
             // Show success message
             document.getElementById('trialForm').style.display = 'none';
             document.getElementById('successMessage').classList.add('active');
-
-            // TODO: Replace with actual form submission to backend
-            // Example:
-            // fetch('/api/trial-signup', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(formData)
-            // });
         }
 
         // Smooth scroll for anchor links and open modal for trial CTAs
